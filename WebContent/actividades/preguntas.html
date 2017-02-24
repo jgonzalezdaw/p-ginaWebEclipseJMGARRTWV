@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Página WEB JMG ARR TWV</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script language="JavaScript">
+	var numQues = 5;
+	var numChoi = 4;
+
+	var answers = new Array(5);
+	answers[0] = "Ej1";
+	answers[1] = "Ej2";
+	answers[2] = "Ej3";
+	answers[3] = "Ej4";
+	answers[4] = "Ej1";
+
+	function getScore(form) {
+		var score = 0;
+		var currElt;
+		var currSelection;
+
+		for (i = 0; i < numQues; i++) {
+			currElt = i * numChoi;
+			for (j = 0; j < numChoi; j++) {
+				currSelection = form.elements[currElt + j];
+				if (currSelection.checked) {
+					if (currSelection.value == answers[i]) {
+						score++;
+						break;
+					}
+				}
+			}
+		}
+
+		score = Math.round(score / numQues * 100);
+		form.porcentaje.value = score + "%";
+
+		var correctAnswers = "";
+		for (i = 1; i <= numQues; i++) {
+			correctAnswers += i + ". " + answers[i - 1] + "\r\n";
+		}
+		form.solucion.value = correctAnswers;
+
+	}
+</script>
+</head>
+
+<body>
+	<div class="header">
+		<img src="img/header.svg"></img>
+	</div>
+
+	<div class="nav">
+		<a href="../index.html">Inicio</a> <a href="../tutoriales.html">Tutorial
+			GIT</a>
+	</div>
+
+	<div class="lateral">
+		<div class="tituloLateral">Ejemplo 1</div>
+		<div class="menuLateral">
+			<a href="../tutoriales1/1.html">Ejemplo1</a>
+		</div>
+		<div class="menuLateral">
+			<a href="../tutoriales1/2.html">Ejemplo2</a>
+		</div>
+		<div class="menuLateral">
+			<a href="../tutoriales1/3.html">Ejemplo3</a>
+		</div>
+		</br>
+		<div class="tituloLateral">Ejemplo 2</div>
+		<div class="menuLateral">
+			<a href="../tutoriales2/1.html">Ejemplo1</a>
+		</div>
+		<div class="menuLateral">
+			<a href="../tutoriales2/3.html">Ejemplo2</a>
+		</div>
+		<div class="menuLateral">
+			<a href="../tutoriales2/3.html">Ejemplo3</a>
+		</div>
+		</br>
+		<div class="tituloLateral">Actividades</div>
+		<div class="menuLateral">
+			<a href="../actividades/preguntas.html">Preguntas</a>
+		</div>
+	</div>
+	<div class="articulo">
+		<h1>¡Bienvenido a las preguntas sobre GitHUB!</h1>
+		<p>Si por algún casual te atascas o no sabes la respuesta, tienes
+			la teoría a tu total disposición. Abre una nueva pestaña o
+			simplemente cierra el test y revisa lo que necesites.</p>
+		</BR>
+		<div class="preguntas1">		
+		<h1>EJEMPLO1</h1>
+		<form name="quiz">
+				1. Ejemplo1</br></br>
+				<input type="radio" name="q1" value="Ej1">Ej1<br>
+				<input type="radio" name="q1" value="Ej2">Ej2<br>
+				<input type="radio" name="q1" value="Ej3">Ej3<br>
+				<input type="radio" name="q1" value="Ej4">Ej4<br></br></th>
+
+				<th>2. Ejemplo2</br></br>
+				<input type="radio" name="q2" value="Ej1">Ej1<br>
+				<input type="radio" name="q2" value="Ej2">Ej2<br>
+				<input type="radio" name="q2" value="Ej3">Ej3<br> 
+				<input type="radio" name="q2" value="Ej4">Ej4<br></br></th>
+
+				<th>3. Ejemplo3</br></br>
+				<input type="radio" name="q3" value="Ej1">Ej1<br>
+				<input type="radio" name="q3" value="Ej2">Ej2<br>
+				<input type="radio" name="q3" value="Ej3">Ej3<br>
+				<input type="radio" name="q3" value="Ej4">Ej4<br></br></th>
+
+				<th>4. Ejemplo4</br></br>
+				<input type="radio" name="q4" value="Ej1">Ej1<br>
+				<input type="radio" name="q4" value="Ej2">Ej2<br>
+				<input type="radio" name="q4" value="Ej3">Ej3<br>
+				<input type="radio" name="q4" value="Ej4">Ej4<br></br></th>
+
+				<th>5. Ejemplo5</br></br>
+				<input type="radio" name="q5" value="Ej1">Ej1<br>
+				<input type="radio" name="q5" value="Ej2">Ej2<br>
+				<input type="radio" name="q5" value="Ej3">Ej3<br>
+				<input type="radio" name="q5" value="Ej4">Ej4<br></br>
+				</br>
+
+				<input type="button" value="Resolver" onClick="getScore(this.form)">
+				<input type="reset" value="Limpiar"></br>
+				Puntuación = <input type=text size=15 name="porcentaje"><br>
+</form>
+		</div>
+
+		<div class="gitlogo" align="right"><img src="img/git.png" height="91" width="228"></img></div>
+	</div>
+
+	<div class="footer">Página creada para LM y ED de 1GSDAW. 2017 -
+		Javier Morillas Green, Álvaro Rodríguez Romero y Teo Walder Vásquez.</div>
+
+</body>
+</html>

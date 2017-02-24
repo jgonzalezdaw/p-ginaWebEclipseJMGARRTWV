@@ -78,64 +78,22 @@ body {
 	border-right: 1px solid #121212;
 }
 
-.lateral {
-	margin-top: -20px;
-	margin-left: 3%;
-	width: 8%;
-	height: auto;
-	padding: 1%;
-	position:fixed;
-	word-wrap:break-word;
-}
-
-.tituloLateral {
-	background-color: #323a42;
-	width: 200px;
-	height: 40px;
-	border-radius: 0px 5px 0px 0px;
-	font-size: 30px;
-	padding: 5px 0px 0px 5px;
-	border: 1px solid white;
-	text-shadow: 2px 2px black;
-}
-
-.menuLateral {
-	margin: 0px 0px 0px 15px;
-	background-color: white;
-	color: black;
-	width: 187px;
-	padding: 5px 0px 5px 5px;
-	font-size: 20px;
-}
-.menuLateral a {text-decoration: none;
-		color: black;
-}
-
-
-.menuLateral a:hover{
-	font-weight: bold;
-}
-
-
 .articulo {
 	margin-top: -1px;
 	border: 1px black solid;
 	height: auto;
-	margin-left: 16.2%;
-	padding: 1%;
-	width: 75%;
-	float:left;
+	margin-left: 9%;
+	margin-right: 9%;
+	padding: 1.5%;
+	width: 80%;
 	background-color: #f4f4f4;
 	color: black;
 	font-size: 20px;
 	border-radius: 5px;
-	word-wrap: break-word;
-}
+	text-align: justify;}
 
 .footer {
-	margin-left: 10%;
-	margin-right: 10%;
-	margin-top: -1px;
+	margin-top: 5px;
 	height: auto;
 	font-size: 70%;
 	text-align: center;
@@ -145,3 +103,8 @@ body {
 tr {
 	text-align: center;
 }
+
+table {
+	margin-left: 7.5%;
+}
+
