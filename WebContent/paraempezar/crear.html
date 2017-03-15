@@ -49,7 +49,7 @@
    	cd ~/</br>
     	# Crea un directorio</br>
     	mkdir ~/repo01</br>
-    	# Entra a ese directorio</br>
+    	# Entra en ese directorio</br>
     	cd repo01</br>
     	# Crea un nuevo directorio</br>
     	mkdir datafiles</br>
@@ -58,13 +58,13 @@
     	touch test02</br>
     	touch test03</br>
     	touch datafiles/data.txt</br>
-    	# Escribe algo de texto adentro en el primer archivo</br>
+    	# Escribe algo de texto dentro del primer archivo</br>
     	ls > test01</br></br>
 
 	<h2>Crear el repositorio y hacer un commit</h2>
 	Cada repositorio Git es almacenado en la carpeta .git del directorio en el cual el repositorio ha sido creado. Este directorio contiene la historia completa del repositorio. El archivo .git/config 		contiene la configuración local del repositorio.</br></br>
 
-	A continuación crearemos un repositorio Git, agregamos los archivos al índice del repositorio y commiteamos los cambios.</br></br>
+	A continuación crearemos un repositorio Git, agregamos los archivos al índice del repositorio y hacemos un commit.</br></br>
 
 	# Inicializamos el repositorio local Git</br>
     	git init</br>
@@ -75,9 +75,9 @@
     	# Muestra el log (un historial)</br>
     	git log</br>
 	<h2>Ver las diferencias via diff y commitear los cambios</h2></br>
-	El comando diff de Git permite al usuario ver los cambios hechos. Para probar esto, haz algunos cambios a un archivo y fijate qué te muestra diff</br></br>
+	El comando diff de Git permite al usuario ver los cambios hechos. Para probar esto, hazle algunos cambios a un archivo y fijate en qué te muestra diff</br></br>
 
-	Después comitea los cambios al repositorio.</br></br>
+	Después haz un commit al repositorio.</br></br>
 
 	# Haz algunos cambios al archivo</br>
     	echo "Este es un cambio" > test01</br>
@@ -124,18 +124,18 @@
 	<h2>Eliminar archivos</h2>
 	Si eliminas un archivo que está bajo el control de versiones, el comando git add . no tendrá en cuenta que has eliminado el archivo. Es neceasrio que uses el comando git commit con la bandera -a o 		el comando git add con la bandera -A.</br></br>
 
-	# Crea un archivo y agregalo al control de versiones</br>
+	# Crea un archivo y agrégalo al control de versiones</br>
     	touch sinsentido.txt</br>
     	git add . && git commit -m "un nuevo archivo ha sido creado"</br>
    	# Elimina el archivo</br>
     	rm sinsentido.txt</br>
-    	# Prueba hacer un commit de la forma normal -> no va a andar</br>
-    	git add . && git commit -m "elimine el archivo, pero no anda"</br>
-    	# Ahora hace un commit con la bandera -a</br>
-    	git commit -a -m "El archivo nonsense.txt ahora si fue eliminado del índice"</br>
+    	# Prueba a hacer un commit de la forma normal -> no va a funcionar</br>
+    	git add . && git commit -m "eliminé el archivo, pero no funciona"</br>
+    	# Ahora haz un commit con la bandera -a</br>
+    	git commit -a -m "El archivo sinsentido.txt fue eliminado correctamente del índice"</br>
     	# Alternativamente podrías agregar los archivos borrados al índice mediante</br>
     	git add -A . </br>
-    	git commit -m "El archivo nonsense.txt ahora si fue eliminado del índice"</br>
+    	git commit -m "El archivo sinsentido.txt fue eliminado correctamente del índice"</br>
 
 <div class="gitlogo" align="right">
 			<img src="img/git.png" height="91" width="228"></img>
@@ -144,5 +144,5 @@
 	</div>
 
 	<div><footer>Página creada para LM y ED de 1GSDAW. 2017 -
-		Javier Morillas Green, Álvaro Rodríguez Romero y Teo Walder Vásquez.</footer></div>
+		Javier Morillas Green, Álvaro Rodríguez Romero y Teo Waelder Vásquez.</footer></div>
 </html>
