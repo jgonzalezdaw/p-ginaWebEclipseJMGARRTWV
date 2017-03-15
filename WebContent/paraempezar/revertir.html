@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Página WEB JMG ARR TWV</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<header>
+		<img src="img/header.svg"></img>
+	</header>
+
+	<div class="nav">
+		<a href="index.html">Inicio</a> <a href="tutoriales.html">Tutorial GIT</a>
+	</div>
+
+	<div class="lateral">
+		<div class="primer">Comenzando
+		</div>
+			<div class="SUB1">
+				<a href="../comenzando/controlv.html">Control de versiones</a></br>
+				<a href="../comenzando/quees.html">¿Qué es GIT?</a></br>
+				<a href="../comenzando/porque.html">¿Por qué GIT?</a></br>
+				<a href="../comenzando/instalar.html">Instalar GIT</a></br>
+			</div>
+
+		<div class="segundo">¡A trabajar!
+		</div>
+			<div class="SUB2">
+				<a href="crear.html">Creando un repositorio</a></br>
+				<a href="repexp.html">Repositorios externos</a></br>
+				<a href="tagging.html">Etiquetar</a></br>
+				<a href="resolucionproblemas.html">Resolver conflictos</a></br>
+				<a href="revertir.html">Revertir cambios</a></br>
+				<a href="revertir.html">Rebase</a>
+			</div>
+	</div>
+		
+	<div class="articulo">
+	<h2>Revertir cambios</h2>
+Si creas archivos en tu copia actual que no quisieses comitear, es posible deshacerlos (recuerda que todas las líneas que empiecen por # son comentarios).</br></br>
+
+# Crea un nuevo archivo con algo de contenido</br>
+    touch test04</br>
+    echo "esto no sirve" > test04</br>
+
+    # Haz un dry-run para ver que ocurriría desde el último cambio</br>
+    # -n es lo mismo que --dry-run</br>
+    git clean -n</br></br>
+
+    # Ahora lo borra</br>
+    git clean -f</br>
+You can check out older revisions of your source code via the commit ID. The commit ID is shown if you enter the git log command. It is displayed behind the commit word.</br></br>
+
+Es posible obtener (mediante un check out) revisiones anteriores de tu código mediante el ID de commit. El ID de commit se muestra si ingresás el comando git log. Es mostrado después de la palabra commit.</br></br>
+
+# Ve al hoome</br>
+    cd ~/repo01</br>
+    # obtene un log</br>
+    git log</br>
+
+    # Copia un commit viejo y obtén las revisiones anteriores</br>
+    git checkout nombre\_del\_commit</br>
+Si no agregaste los cambios al índice, también es posible revertir los cambios directamente.</br></br>
+
+# algún cambio sin sentido</br>
+    echo "sin sentido" > test01</br>
+    # no ha sido agregado al índice, por lo tanto</br>
+    # simplemente podemos obtener la versión anterior</br>
+    git checkout test01</br>
+    # Comprueba el contenido</br>
+    cat test01</br>
+    # Otro cambio sin sentido</br>
+    echo "otro cambio sin sentido" > test01</br>
+    # Agregamos el archivo al índice</br>
+    git add test01</br>
+    # Recuperamos el archivo en el índice</br>
+    git reset HEAD test01</br>
+    # Obtenemos la versión vieja desde el índice</br>
+    git checkout test01</br>
+También es posible revertir los commits mediante el siguiente comando:</br></br>
+
+# Revertir un commit</br>
+    git revert commit_name</br>
+Si borraste un archivo pero no has hecho el cambio en el índice, o comiteado el cambio, es posible volver a obtener ese archvio.</br>
+
+# borramos el archivo</br>
+    rm test01</br>
+    # revertimos la eliminación</br>
+    git checkout test01</br>
+Si agregaste el archivo al índice pero no querés comitearlo, es posible elminarlo del índice mediante el comando git reset.</br></br>
+
+# creamos un archivo</br>
+    touch incorrecto.txt</br>
+    # lo agregamos al índice accidentalmente</br>
+    git add .</br>
+    # lo borramos del índice</br>
+    git reset incorrecto.txt</br>
+    # borramos el archivo</br>
+    rm incorrect.txt</br>
+Si borraste un directorio y no has comiteado los cambios es posible recuperarlo mediante el siguiente comando:</br></br>
+
+git checkout HEAD -- directorio\_a\_recuperar
+
+<div class="gitlogo" align="right">
+			<img src="img/git.png" height="91" width="228"></img>
+		</div></li>
+	</ul>
+	</div>
+
+	<div><footer>Página creada para LM y ED de 1GSDAW. 2017 -
+		Javier Morillas Green, Álvaro Rodríguez Romero y Teo Walder Vásquez.</footer></div>
+</html>

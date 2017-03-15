@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Página WEB JMG ARR TWV</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<header>
+		<img src="img/header.svg"></img>
+	</header>
+
+	<div class="nav">
+		<a href="index.html">Inicio</a> <a href="tutoriales.html">Tutorial GIT</a>
+	</div>
+
+	<div class="lateral">
+		<div class="primer">Comenzando
+		</div>
+			<div class="SUB1">
+				<a href="../comenzando/controlv.html">Control de versiones</a></br>
+				<a href="../comenzando/quees.html">¿Qué es GIT?</a></br>
+				<a href="../comenzando/porque.html">¿Por qué GIT?</a></br>
+				<a href="../comenzando/instalar.html">Instalar GIT</a></br>
+			</div>
+
+		<div class="segundo">¡A trabajar!
+		</div>
+			<div class="SUB2">
+				<a href="crear.html">Creando un repositorio</a></br>
+				<a href="repexp.html">Repositorios externos</a></br>
+				<a href="tagging.html">Etiquetar</a></br>
+				<a href="resolucionproblemas.html">Resolver conflictos</a></br>
+				<a href="revertir.html">Revertir cambios</a></br>
+				<a href="revertir.html">Rebase</a>
+			</div>
+	</div>
+		
+	<div class="articulo">
+	<h2>Rebase</h2>
+<h3>Utilizando rebase para varios commits en un mismo branch</h3>
+El comando rebase te permite combinar varios commits en uno único. Esto es útil ya que permite al usuario reescribir un poco de la historia de los commits (haciendo algo de limpieza) antes de hacer un push de los cambios a un repositorio remoto.</br></br>
+A continuación crearemos varios commits que serán combinados más adelante.</br>
+
+# Crea un nuevo archivo</br>
+    touch rebase.txt</br></br>
+
+    # agregamos al índice y comiteamos</br>
+    git add . && git commit -m "rebase.txt añadido al índice"</br></br>
+
+    # Algunos cambios tontos</br>
+    echo "contenido" >> rebase.txt</br>
+    git add . && git commit -m "agregué contenido"</br>
+    echo " más contenido" >> rebase.txt</br>
+    git add . && git commit -m "agregué más contenido"</br>
+    echo " más contenido" >> rebase.txt</br>
+    git add . && git commit -m "agregué más contenido"</br>
+    echo " más contenido" >> rebase.txt</br>
+    git add . && git commit -m "agregué más contenido"</br>
+    echo " más contenido" >> rebase.txt</br>
+    git add . && git commit -m "agregué más contenido"</br>
+    echo " más contenido" >> rebase.txt</br>
+    git add . && git commit -m "agregué más contenido"</br>
+
+    # Mira el log</br>
+    git log</br></br>
+Ahora combinaremos los últimos siete commits. Podés hacer esto interactivamente mediante el siguiente comando.</br></br>
+
+git rebase -i HEAD~7</br>
+Esto abre tu editor preferido y te deja editar el mensaje de commit o compactar (mediante squash - s) / arreglar (mediante fixup - f) el commit con el último.</br></br>
+
+La opción de compactar (squash) combina los mensajes de commit mientras que arreglar (fixup) ignora los mensajes.</br></br>
+
+<h3>Rebase entre branches</h3>
+También podés usar Git para hacer un rebase entre dos branches. Como describimos anteriormente, el comando merge combina los cambios de dos branches. Rebase toma los cambios de un branch, crea un patch y lo aplica al otro branch.</br></br>
+
+El resultado final del código fuente es el mismo que con merge pero la historia de commit es más limpia. La historia parece ser lineal.</br></br>
+
+# Crea un nuevo branch</br>
+    git branch testing</br>
+    # checkout del branch</br>
+    git checkout testing</br>
+    # Hacemos algunos cambios</br>
+    echo "Haremos un rebase con el master" > test01</br>
+    # hacemos un commit al branch testing</br>
+    git commit -a -m "Algo nuevo en el branch"</br>
+    # Hacemos un rebase con el master</br>
+    git rebase master</br>
+
+<h3>Buenas prácticas para el uso de rebase</h3>
+Siempre deberías chequear tu historial local antes de hacer un push con tus nuevos cambios a otro repositorio Git.</br></br>
+
+Git te permite hacer commits locales. Esta característica es frecuentemente utilizada para tener puntos a los cuales volver si algo sale mal más adelante durante el desarrollo de nuevas funcionalidades. Si haces esto, antes de hacer un push deberías mirar tu historial local y validar si estos commits son relevantes para otros desarrolladores.</br></br>
+
+Si todos esos commits son parte de la implementación de una funcionalidad en particular, lo más probable es que quieras resumirlos en un único commit antes de hacer el push.
+</br></br>
+El rebase interactivo consiste basicamente en reescribir la historia. Es seguro hacer esto siempre y cuando los commits no han sido subidos (mediante un puhs) a otro repositorio. Esto significa que los commits solo deben ser reescritos mientras no se haya hecho un push.</br></br>
+
+Si reescribis algo y después haces un push de un commit que ya está presente en otros repositorios Git, en realidad parecerá como si hubieses implementado algo que alguien ya implementó en el pasado.</br></br>
+
+<h3>Creando y aplicando parches</h3>
+Un parche (patch) es un archivo de texto que contiene cambios para el código fuente. Este archivo puede ser enviado a alguna persona y esta persona puede usar dicho archivo para aplicar los cambios a su repositorio.</br></br>
+
+Los siguientes comandos crean un branch, hacen algunos cambios, crean un parche y aplican el parche al master.</br></br>
+
+# creamos un nuevo branch</br>
+    git branch mybranch</br>
+    # usamos este branch</br>
+    git checkout mybranch</br>
+    # hacemos algunos cambios</br>
+    touch test05</br>
+    # cambiamos el contenido de un archvio</br>
+    echo "New content for test01" >test01</br>
+    # comiteamos esto al branch</br>
+    git add .</br>
+    git commit -a -m "primer commit en el branch"</br></br>
+
+    # creamos un parche -> sintaxis: git format-patch master</br>
+    git format-patch origin/master</br>
+    # se crea el archivo 0001-primer-commit-en-el-branch.patch</br></br>
+
+    # obtenemos el master</br>
+    git checkout master</br></br>
+
+    # aplicamos el parche</br>
+    git apply 0001-primer-commit-en-el-branch.patch</br>
+    # hacemos un commit normal en el master</br>
+    git add .</br>
+    git commit -a -m "parche aplicado"</br></br>
+
+    # borramos el archivo</br>
+    rm 0001-primer-commit-en-el-branch.patch</br>
+<div class="gitlogo" align="right">
+			<img src="img/git.png" height="91" width="228"></img>
+		</div></li>
+	</ul>
+	</div>
+
+	<div><footer>Página creada para LM y ED de 1GSDAW. 2017 -
+		Javier Morillas Green, Álvaro Rodríguez Romero y Teo Walder Vásquez.</footer></div>
+</html>

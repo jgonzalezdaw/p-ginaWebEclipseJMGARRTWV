@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Página WEB JMG ARR TWV</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<header>
+		<img src="img/header.svg"></img>
+	</header>
+
+	<div class="nav">
+		<a href="index.html">Inicio</a> <a href="tutoriales.html">Tutorial GIT</a>
+	</div>
+
+	<div class="lateral">
+		<div class="primer">Comenzando
+		</div>
+			<div class="SUB1">
+				<a href="../comenzando/controlv.html">Control de versiones</a></br>
+				<a href="../comenzando/quees.html">¿Qué es GIT?</a></br>
+				<a href="../comenzando/porque.html">¿Por qué GIT?</a></br>
+				<a href="../comenzando/instalar.html">Instalar GIT</a></br>
+			</div>
+
+		<div class="segundo">¡A trabajar!
+		</div>
+			<div class="SUB2">
+				<a href="crear.html">Creando un repositorio</a></br>
+				<a href="repexp.html">Repositorios externos</a></br>
+				<a href="tagging.html">Etiquetar</a></br>
+				<a href="resolucionproblemas.html">Resolver conflictos</a></br>
+				<a href="revertir.html">Revertir cambios</a></br>
+				<a href="revertir.html">Rebase</a>
+			</div>
+	</div>
+		
+	<div class="articulo">
+	<h2>Resolviendo conflictos después de un merge</h2>
+Un conflicto ocurre si dos personas han modificado el mismo contenido y Git no puede determinar automaticamente como deberían ser aplicados ambos cambios.</br></br>
+
+Git requiere que los conflictos sean resueltos manualmente. En esta sección; primero crearemos un conflicto y después lo resolveremos y aplicaremos el cambio al repositorio.</br></br>
+
+De la siguiente manera creamos un conflicto.</br></br>
+
+# Navega al primer directorio</br>
+    cd ~/repo01</br>
+    # Haz algunos cambios</br>
+    touch conflictivo.txt</br>
+    echo "Cambio en el primer repo" > conflictivo.txt</br>
+    # Lo agregamos al índice y comiteamos</br>
+    git add . && git commit -a -m "Creamos el conflicto 1"</br></br>
+
+    # Navegamos al segundo directorio</br>
+    cd ~/repo02</br>
+    # más cambios</br>
+    touch conflictivo.txt</br>
+    echo "Cambio en el segundo repo" > conflictivo.txt</br>
+    # Lo agregamos al índice y comiteamos</br>
+    git add . && git commit -a -m "Creamos el conflicto 2"</br>
+    # Hacemos un push al master</br>
+    git push</br></br>
+
+    # Ahora trata de hacer un push desde el primer directorio</br>
+    # Navega al primer directorio</br>
+    cd ~/repo01</br>
+    # Trata de hacer un push -> ocurrirá un error</br>
+    git push</br>
+    # Obtén los cambios</br>
+    git pull origin master</br>
+Git marca el conflicto en el archivo afectado (conflictivo.txt). El archivo debería tener el siguiente contenido.</br></br>
+
+<<<<<<< HEAD
+Cambio en el primer repo
+=======
+Cambio en el segundo repo
+>>>>>>> b29196692f5ebfd10d8a9ca1911c8b08127c85f8
+La parte superior (sobre la linea ====) contiene el contenido de tu repositorio, y la parte inferior es la que tiene el contenido del repositorio remoto. Ahora podéis editar el archivo manualmente y después comitear los cambios. Alternativamente, podrías usar el comando git mergetool. git mergetool lanza una herramienta configurable que muestra los cambios en una pantalla dividida.
+
+# Puedes editar el archivo manualmente o usar
+git mergetool
+# Te pedirá que selecciones qué herramienta para
+# resolver el conflicto deseas utilizar 
+# por ejemplo en ubuntu puedes usar la herramienta "meld"
+# después de resolver los conflictos manualmente, los comiteamos
+git commit -m "conflictos resueltos"
+<div class="gitlogo" align="right">
+			<img src="img/git.png" height="91" width="228"></img>
+		</div></li>
+	</ul>
+	</div>
+
+	<div><footer>Página creada para LM y ED de 1GSDAW. 2017 -
+		Javier Morillas Green, Álvaro Rodríguez Romero y Teo Walder Vásquez.</footer></div>
+</html>

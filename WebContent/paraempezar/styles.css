@@ -1,8 +1,4 @@
-.header {
-	border: 0px black solid;
-	color: white;
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-	font-size: 36px;
+header {
 	margin: 1% 0% 1% 1%;
 }
 
@@ -11,6 +7,7 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: white;
 }
+
 
 .nav {
 	margin: 6px;
@@ -79,69 +76,127 @@ body {
 }
 
 .lateral {
-	margin-top: -20px;
-	margin-left: 3%;
-	width: 8%;
+	margin-left: 5%;
+	border: 0px black solid;
 	height: auto;
-	padding: 1%;
-	position:fixed;
-	word-wrap:break-word;
+   	width: 15%;
+	float: left;
+	word-wrap: break-word;
+	}
+
+.primer {
+	font-size: xx-large;
+	background-color: #4E5359;
+	border-radius: 0px 15px 0px 0px;
+	padding: 3% 5% 2% 5%;
+	text-shadow: black 2px 2px;
+	border: 1px white solid;
+	height: auto;
+	
 }
 
-.tituloLateral {
-	background-color: #323a42;
-	width: 200px;
-	height: 40px;
-	border-radius: 0px 5px 0px 0px;
-	font-size: 30px;
-	padding: 5px 0px 0px 5px;
-	border: 1px solid white;
-	text-shadow: 2px 2px black;
-}
-
-.menuLateral {
-	margin: 0px 0px 0px 15px;
+.SUB1{
+	margin-left: 15%;
+	font-size: large;
 	background-color: white;
 	color: black;
-	width: 187px;
-	padding: 5px 0px 5px 5px;
-	font-size: 20px;
-}
-.menuLateral a {text-decoration: none;
-		color: black;
+	padding-left: 5%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	text-decoration: none;
 }
 
+.SUB1 a{
+	color: black;
+	text-decoration: none;
+}
 
-.menuLateral a:hover{
+.SUB1 a:hover{
 	font-weight: bold;
 }
 
 
-.articulo {
-	margin-top: -1px;
-	border: 1px black solid;
-	height: auto;
-	margin-left: 16.2%;
-	padding: 1%;
-	width: 75%;
-	float:left;
-	background-color: #f4f4f4;
-	color: black;
-	font-size: 20px;
-	border-radius: 5px;
-	word-wrap: break-word;
+.segundo {
+	margin-top: 10%;
+	font-size: xx-large;
+	background-color: #4E5359;
+	border-radius: 0px 15px 0px 0px;
+	padding: 3% 5% 2% 5%;
+	text-shadow: black 2px 2px;
+	border: 1px white solid;
 }
 
-.footer {
-	margin-left: 10%;
-	margin-right: 10%;
-	margin-top: -1px;
-	height: auto;
-	font-size: 70%;
+.SUB2 {
+	margin-left: 15%;
+	font-size: large;
+	background-color: white;
+	color: black;
+	padding-left: 5%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.SUB2 a{
+	color: black;
+	text-decoration: none;
+}
+
+.SUB2 a:hover{
+	font-weight: bold;
+}
+
+.tercero {
+	margin-top: 10%;
+	font-size: xx-large;
+	background-color: #4E5359;
+	border-radius: 0px 15px 0px 0px;
+	padding: 3% 5% 2% 5%;
+	text-shadow: black 2px 2px;
+	border: 1px white solid;
+}
+
+.SUB3 {
+	margin-left: 15%;
+	font-size: large;
+	background-color: white;
+	color: black;
+	padding-left: 5%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.SUB3 a{
+	color: black;
+	text-decoration: none;
+}
+
+.SUB3 a:hover{
+	font-weight: bold;
+}
+
+.articulo {
+	margin-left: 1%;
+	margin-right: 5%;
+	border-radius: 10px;
+	background-color: white;
+	color: black;
+	padding: 0.5% 1% 0.5% 1%;
+	float: left;
+	width: 70%;
+	font-size: x-large;
+	text-align: justify;
+word-wrap: break-word;
+}
+
+
+footer{
+	font-size: small;
 	text-align: center;
-	font-style: bold;
+	width: 100%;
 }
 
 tr {
 	text-align: center;
 }
+
+

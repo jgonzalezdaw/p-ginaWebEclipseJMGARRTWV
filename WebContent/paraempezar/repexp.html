@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Página WEB JMG ARR TWV</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<header>
+		<img src="img/header.svg"></img>
+	</header>
+
+	<div class="nav">
+		<a href="index.html">Inicio</a> <a href="tutoriales.html">Tutorial GIT</a>
+	</div>
+
+	<div class="lateral">
+		<div class="primer">Comenzando
+		</div>
+			<div class="SUB1">
+				<a href="../comenzando/controlv.html">Control de versiones</a></br>
+				<a href="../comenzando/quees.html">¿Qué es GIT?</a></br>
+				<a href="../comenzando/porque.html">¿Por qué GIT?</a></br>
+				<a href="../comenzando/instalar.html">Instalar GIT</a></br>
+			</div>
+
+		<div class="segundo">¡A trabajar!
+		</div>
+			<div class="SUB2">
+				<a href="crear.html">Creando un repositorio</a></br>
+				<a href="repexp.html">Repositorios externos</a></br>
+				<a href="tagging.html">Etiquetar</a></br>
+				<a href="resolucionproblemas.html">Resolver conflictos</a></br>
+				<a href="revertir.html">Revertir cambios</a></br>
+				<a href="revertir.html">Rebase</a>
+			</div>
+	</div>
+		
+	<div class="articulo">
+	<h2>Trabajando con repositorios externos</h2>
+<h3>Creando un repositorio Git externo</h3>
+Creamos un repositorio remoto en GIT para guardar nuestros archivos en la red y localmente.</br>
+Los repositorios que hemos creado no contienen todos los archivos, mientras que los repositorios remotos si, ya que guardan el codigo fuente y el repositorio de GIT, para usar el repositorio que hemos creado añadimos la bandera –bare. -git clone –bare . ../prueba-remota.git</br></br>
+
+<h3>Subir los cambios a otro repositorio - Push</h3>
+Haremos unos cambios y los subimos al repositorio con los siguientes comandos:</br>
+#Modificamos</br>
+echo “Primer cambio”</br>
+#Hacemos commit</br>
+git commit -a -m “Cambios”</br>
+#Subimos los cambios</br>
+git push ../prueba-remota.git</br></br>
+
+<h3>Add remote</h3>
+Podemos crear un repositorio con nombre con el comando:</br>
+git remote add. Origin, este nombre suele usarse automatica, asi que si clonamos el repositorio, origin indica el repositorio que usamos desde que empezamos el archivo.</br></br>
+
+#añadimos /prueba-remote.git con origin</br>
+git remote add origin ../prueba-repositorio.git</br>
+#commit</br>
+git commit -a -m “commit repositorio origin”</br>
+#subimos origin</br>
+git push origin</br>
+5.4. Mostrar los repositorios externos existentes</br>
+#Ver los repositorios existentes</br>
+git remote</br>
+5.5. Clonar tu repositorio</br>
+Creamos un repositorio nuevo en otro directorio con los comandos siguientes.</br>
+#Creamos nuevo directorio</br>
+mkdir repositorio nuevo</br>
+#Y lo clonamos</br>
+git clone ../prueba-remota.git</br>
+
+<h3>Trayendo los cambios - Pull</h3>
+Con pull obtenemos los cambios de otro repositorio, por ejemplo, hacemos un push con un repositorio, y para obtener esos cambios en otro repositorio usamos el pull.</br>
+#Primero hacemos unos cambios</br>
+echo “cambio Prueba”</br>
+#commit</br>
+git commit -a -m “CambioPrueba”</br></br>
+
+<h3>#Subimos los cambios </h3>
+git push origin</br>
+#Despues bajamos los cambios en la carpeta que queramos.</br>
+Git pull ../prueba-remota-git</br>
+#Podemos observar los cambios</br>
+less Prueba</br>
+<div class="gitlogo" align="right">
+			<img src="img/git.png" height="91" width="228"></img>
+		</div></li>
+	</ul>
+	</div>
+
+	<div><footer>Página creada para LM y ED de 1GSDAW. 2017 -
+		Javier Morillas Green, Álvaro Rodríguez Romero y Teo Walder Vásquez.</footer></div>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Página WEB JMG ARR TWV</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<header>
+		<img src="img/header.svg"></img>
+	</header>
+
+	<div class="nav">
+		<a href="index.html">Inicio</a> <a href="tutoriales.html">Tutorial GIT</a>
+	</div>
+
+	<div class="lateral">
+		<div class="primer">Comenzando
+		</div>
+			<div class="SUB1">
+				<a href="../comenzando/controlv.html">Control de versiones</a></br>
+				<a href="../comenzando/quees.html">¿Qué es GIT?</a></br>
+				<a href="../comenzando/porque.html">¿Por qué GIT?</a></br>
+				<a href="../comenzando/instalar.html">Instalar GIT</a></br>
+			</div>
+
+		<div class="segundo">¡A trabajar!
+		</div>
+			<div class="SUB2">
+				<a href="crear.html">Creando un repositorio</a></br>
+				<a href="repexp.html">Repositorios externos</a></br>
+				<a href="tagging.html">Etiquetar</a></br>
+				<a href="resolucionproblemas.html">Resolver conflictos</a></br>
+				<a href="revertir.html">Revertir cambios</a></br>
+				<a href="revertir.html">Rebase</a>
+			</div>
+	</div>
+		
+	<div class="articulo">
+	<h2>Empezando con GIT</h2>
+	A continuación trataré de guiarte a través de una utilización típica de Git. Vas a crear algunos archivos, crear un repositorio Git local y commitear los archivos en este repositorio. Después 	clonaremos el repositorio y haremos push y pull entre los repositorios. Abre una consola para comenzar.</br></br>
+
+	<h2>Creando contenido</h2>
+	Los comandos a continuación crean algunos archivos con algo de contenido y después son puestos bajo el control de versiones.</br></br>
+
+	# Navega hasta dónde tengas el workbench.</br>
+   	cd ~/</br>
+    	# Crea un directorio</br>
+    	mkdir ~/repo01</br>
+    	# Entra a ese directorio</br>
+    	cd repo01</br>
+    	# Crea un nuevo directorio</br>
+    	mkdir datafiles</br>
+    	# Crea algunos archivos</br>
+    	touch test01</br>
+    	touch test02</br>
+    	touch test03</br>
+    	touch datafiles/data.txt</br>
+    	# Escribe algo de texto adentro en el primer archivo</br>
+    	ls > test01</br></br>
+
+	<h2>Crear el repositorio y hacer un commit</h2>
+	Cada repositorio Git es almacenado en la carpeta .git del directorio en el cual el repositorio ha sido creado. Este directorio contiene la historia completa del repositorio. El archivo .git/config 		contiene la configuración local del repositorio.</br></br>
+
+	A continuación crearemos un repositorio Git, agregamos los archivos al índice del repositorio y commiteamos los cambios.</br></br>
+
+	# Inicializamos el repositorio local Git</br>
+    	git init</br>
+    	# Agregamos todo (archivos y directorios) al repositorio</br>
+    	git add .</br>
+    	# Hacemos un commit al repositorio</br>
+    	git commit -m "Initial commit"</br>
+    	# Muestra el log (un historial)</br>
+    	git log</br>
+	<h2>Ver las diferencias via diff y commitear los cambios</h2></br>
+	El comando diff de Git permite al usuario ver los cambios hechos. Para probar esto, haz algunos cambios a un archivo y fijate qué te muestra diff</br></br>
+
+	Después comitea los cambios al repositorio.</br></br>
+
+	# Haz algunos cambios al archivo</br>
+    	echo "Este es un cambio" > test01</br>
+    	echo "y este es otro cambio" > test02</br></br>
+
+    	# Mira los cambios con el comando diff</br>
+    	git diff</br></br>
+
+    	# Comitea los cambios, -a comitea los cambios de los archivos modificados</br>
+    	# pero no agrega automaticamente nuevos archivos</br>
+    	git commit -a -m "Hay nuevos cambios"</br></br>
+
+	<h2>Status, Diff y el log de Commit</h2>
+	A continuación utilizaremos comandos que te ayudarán a ver el estado actual de tu repositorio y un log de todos los commits.</br></br>
+
+	# Haz algunos cambios al archivo</br>
+    	echo "Nuevo cambio" > test01</br>
+    	echo "y otro nuevo cambio" > test02</br></br>
+
+    	# Mira el estado actual de tu repositorio</br>
+    	# (qué archivos han cambiado, son nuevos o eliminados)</br>
+    	git status</br></br>
+
+    	# Muestra las diferencias entre los archivos no comiteados</br>
+    	# y el último commit en el branch actual</br>
+    	git diff</br></br>
+
+    	# Agrega los cambios al índice y comitea</br>
+    	git add . && git commit -m "Más cambioos - con un error en el mensaje de commit"</br></br>
+
+    	# Muestra el histórico de commits en el branch actual</br>
+    	git log</br></br>
+
+    	# Muestra una linda vista gráfica de los cambios</br>
+    	itk --all</br></br>
+
+	<h2>Corrección de mensajes de commit - git amend</h2>
+	El comando amend hace posible cambiar el último mensaje de commit.</br></br>
+
+	En el ejemplo anterior el mensaje de commit era incorrecto y tenía un error. A continuación lo corregimos mediante el parámetro --amend.</br></br>
+
+	git commit --amend -m "Más cambios, ahora correctos"</br></br>
+
+	<h2>Eliminar archivos</h2>
+	Si eliminas un archivo que está bajo el control de versiones, el comando git add . no tendrá en cuenta que has eliminado el archivo. Es neceasrio que uses el comando git commit con la bandera -a o 		el comando git add con la bandera -A.</br></br>
+
+	# Crea un archivo y agregalo al control de versiones</br>
+    	touch sinsentido.txt</br>
+    	git add . && git commit -m "un nuevo archivo ha sido creado"</br>
+   	# Elimina el archivo</br>
+    	rm sinsentido.txt</br>
+    	# Prueba hacer un commit de la forma normal -> no va a andar</br>
+    	git add . && git commit -m "elimine el archivo, pero no anda"</br>
+    	# Ahora hace un commit con la bandera -a</br>
+    	git commit -a -m "El archivo nonsense.txt ahora si fue eliminado del índice"</br>
+    	# Alternativamente podrías agregar los archivos borrados al índice mediante</br>
+    	git add -A . </br>
+    	git commit -m "El archivo nonsense.txt ahora si fue eliminado del índice"</br>
+
+<div class="gitlogo" align="right">
+			<img src="img/git.png" height="91" width="228"></img>
+		</div></li>
+	</ul>
+	</div>
+
+	<div><footer>Página creada para LM y ED de 1GSDAW. 2017 -
+		Javier Morillas Green, Álvaro Rodríguez Romero y Teo Walder Vásquez.</footer></div>
+</html>
